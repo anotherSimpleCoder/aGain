@@ -24,3 +24,10 @@ jobs:
 
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: Upload VST3 artifacts
+        working-directory: ./build/aGain_artefacts/${{env.BUILD_TYPE}}/VST3
+        with:
+          name: aGain-${{matrix.os}}
+          path: |
+            *.vst3
