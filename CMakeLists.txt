@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.30)
-project(audio)
+project(aGain)
 
 set(CMAKE_CXX_STANDARD 23)
 
@@ -21,9 +21,9 @@ juce_add_plugin(audio
 	NEEDS_MIDI_INPUT FALSE
 	NEEDS_MIDI_OUTPUT FALSE
 	PLUGIN_MANUFACTURER_CODE ASCA
-	PLUGIN_CODE AUDI
+	PLUGIN_CODE AGIN
 	FORMATS VST3
-	PRODUCT_NAME "Audio"
+	PRODUCT_NAME "aGain"
 )
 
 target_sources(audio PRIVATE
