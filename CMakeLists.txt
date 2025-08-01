@@ -24,8 +24,9 @@ juce_add_plugin(audio
 	PLUGIN_CODE AUDI
 	FORMATS VST3
 	PRODUCT_NAME "Audio"
-	SOURCES
-		src/PluginEditor.cc
+)
+
+target_sources(audio PRIVATE
 		src/PluginProcessor.cc
 )
 
