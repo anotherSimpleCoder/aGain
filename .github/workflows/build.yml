@@ -27,6 +27,7 @@ jobs:
 
       - name: Upload VST3 artifacts
         working-directory: ./build/aGain_artefacts/${{env.BUILD_TYPE}}/VST3
+        uses: actions/upload-artifact@v4
         with:
           name: aGain-${{matrix.os}}
           path: |
