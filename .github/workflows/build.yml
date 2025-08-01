@@ -46,8 +46,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            artifacts/**/*.zip
-            artifacts/**/*.tar.gz
+            artifacts/*.zip
           draft: false
           prerelease: false
           generate_release_notes: true
