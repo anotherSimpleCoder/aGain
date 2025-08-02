@@ -1,4 +1,4 @@
-#include "PluginProcessor.h"
+#include "AGainProcessor.h"
 #include <cmath>
 
 //==============================================================================
@@ -12,7 +12,7 @@ AudioPluginAudioProcessor::AudioPluginAudioProcessor()
                      #endif
                        )
 {
-    addParameter(gain = new juce::AudioParameterFloat(
+	addParameter(gain = new juce::AudioParameterFloat(
 			{"gain", 1}, 
 			"Gain", 
 			juce::NormalisableRange<float>(0.0f, 1.0f),

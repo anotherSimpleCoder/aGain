@@ -27,7 +27,7 @@ juce_add_plugin(aGain
 )
 
 target_sources(aGain PRIVATE
-		src/PluginProcessor.cc
+	src/AGainProcessor.cc
 )
 
 target_link_libraries(aGain
