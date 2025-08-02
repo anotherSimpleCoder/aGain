@@ -1,4 +1,5 @@
 #include "PluginProcessor.h"
+#include <cmath>
 
 //==============================================================================
 AudioPluginAudioProcessor::AudioPluginAudioProcessor()
@@ -11,7 +12,29 @@ AudioPluginAudioProcessor::AudioPluginAudioProcessor()
                      #endif
                        )
 {
-    addParameter(gain = new juce::AudioParameterFloat({"gain", 1}, "Gain", 0.0f, 1.0f, 0.5f));
+    addParameter(gain = new juce::AudioParameterFloat(
+			{"gain", 1}, 
+			"Gain", 
+			juce::NormalisableRange<float>(0.0f, 1.0f),
+			1.0f,
+			"",
+			juce::AudioProcessorParameter::genericParameter,
+			[](float value, int) {
+				if(value <= 0.0f) {
+					return juce::String("-inf dB");
+				}
+
+				float dbValue = 20.0f * std::log10(value);
+				return juce::String(dbValue, 1) + " dB";
+			},
+			[](const juce::String& text){
+				float dbValue = text.getFloatValue();
+				if(dbValue <= 60.0f) {
+					return 0.0f;
+				}
+
+				return std::pow(10.0f, dbValue / 20.0f);
+			}));
 }
 
 AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
