@@ -1,4 +1,4 @@
-#include "AGainProcessor.h"
+#include "AGainProcessor.hh"
 #include <cmath>
 
 //==============================================================================
